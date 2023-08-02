@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF zu TXT Konverter</title>
+</head>
+<body>
+    <h1>PDF zu TXT Konverter</h1>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="files" multiple><br><br>
+        <input type="submit" value="Konvertieren">
+    </form>
+</body>
+</html>
