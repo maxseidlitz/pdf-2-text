@@ -24,10 +24,12 @@ def index():
             with open(file_path, 'rb') as pdf_file:
                 pdf = PdfReader(pdf_file)
                 text = ''
-                for page_num in len(pdf.pages()):
-                    page = pdf.getPage(page_num)
+                page_num = 0
+                while page_num < len(pdf.pages):
+                    page = pdf.pages[page_num]
                     text += page.extract_text()
-                extracted_text.append((filename, text))
+                    extracted_text.append((filename, text))
+                    page_num += 1
 
         # TXT-Datei erstellen und den extrahierten Text hinzufügen
         output_file = 'output.txt'
